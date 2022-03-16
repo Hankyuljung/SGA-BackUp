@@ -11,7 +11,7 @@
 		insert into back_category
 		(back_notice_subject,back_notice_content)
 		values
-		(#{back_Notice_Subject},#{back_Notice_Content})
+		(#{back_Notice_Subject},#{back_Category_Use})
 	</insert>
 
 	<!-- 공지사항 수정 -->
