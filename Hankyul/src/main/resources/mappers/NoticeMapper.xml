@@ -8,10 +8,10 @@
 	<!-- 공지사항 등록 -->
 	<insert id="insertNotice" parameterType="BackNoticeVO">
 	
-		insert into back_category
+		insert into back_notice
 		(back_notice_subject,back_notice_content)
 		values
-		(#{back_Notice_Subject},#{back_Category_Use})
+		(#{back_Notice_Subject},#{back_Notice_Content})
 	</insert>
 
 	<!-- 공지사항 수정 -->
@@ -35,9 +35,27 @@
 	<!-- 공지사항 가져오기 -->
 	<select id="getNotice" resultType="BackNoticeVO">
 		select
-		back_notice_idx,back_notice_subject
+		back_notice_idx,back_notice_subject,back_notice_content
 		from
 		back_notice
+	</select>
+	
+	<!-- 현재 저장한 idx 가져오기 -->
+	<select id="selectSeq" resultType="int">
+		select
+		max(back_notice_idx)
+		from
+		back_notice
+	</select>
+	
+	<!--  1개 글 가져오기 -->
+	<select id="selectIdx" resultType="int">
+		select
+		*
+		from
+		back_notice
+		where
+		back_notice_idx = #{back_Notice_Idx}
 	</select>
 
 </mapper>

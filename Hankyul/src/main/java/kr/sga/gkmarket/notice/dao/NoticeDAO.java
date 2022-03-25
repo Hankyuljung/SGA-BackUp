@@ -1,15 +1,12 @@
 package kr.sga.gkmarket.notice.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.stereotype.Component;
 
 import kr.sga.gkmarket.notice.vo.BackNoticeVO;
 
-@Mapper 
+@Mapper
 public interface NoticeDAO {
 	// 공지사항 등록
 	void insertNotice(BackNoticeVO backNoticeVO);
@@ -19,4 +16,9 @@ public interface NoticeDAO {
 	void deleteNotice(int backNoticeVO);
 	// 공지사항 가져오기
 	List<BackNoticeVO> getNotice();
+	// 현재저장한 idx 가져오기	
+	int selectSeq();
+	// 글 1개 가져오기
+	BackNoticeVO selectIdx(int idx);
+
 }
